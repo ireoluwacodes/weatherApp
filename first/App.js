@@ -13,7 +13,7 @@ export default function App() {
   // const [fontsLoaded] = useFonts({
   //   'RobotoBlack' : require("./assets/fonts/Roboto-Black.ttf")
   // })
-  let [fontsLoaded, fontError] = useFonts({
+  let [fontsLoaded, fontError]  = useFonts({
     Inter_700Bold,
     Roboto_400Regular,
     Roboto_700Bold,
