@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, SafeAreaView, Text, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import GlobalStyles from "./config/GlobalStyles";
+import GlobalStyles from "../config/GlobalStyles";
 
-export default function App() {
+const CurrentWeather = () => {
   return (
     <SafeAreaView style={[styles.container, GlobalStyles.droidSafeArea]}>
       <View style={styles.topSection}>
@@ -26,7 +26,7 @@ export default function App() {
       <StatusBar style="auto" />
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -35,43 +35,44 @@ const styles = StyleSheet.create({
   },
   topSection: {
     flex: 4,
-    alignItems : "center",
-    justifyContent : "center"
+    alignItems: "center",
+    justifyContent: "center",
   },
-  temperatureText :  {
-    marginTop : 10,
-    fontSize : 80,
-    fontWeight : "600"
+  temperatureText: {
+    marginTop: 10,
+    fontSize: 80,
+    fontWeight: "600",
   },
-  feelsLikeTemperature : {
-    margin : 10,
-    fontSize : 50,
-    fontWeight : "550"
+  feelsLikeTemperature: {
+    margin: 10,
+    fontSize: 50,
+    fontWeight: "500",
   },
-  temperatureVariation : {
-    flexDirection : "row",
-    gap : 15
+  temperatureVariation: {
+    flexDirection: "row",
+    gap: 15,
   },
-  temperatureVariationText : {
-    fontSize : 25,
-    fontWeight : "400"
-
+  temperatureVariationText: {
+    fontSize: 25,
+    fontWeight: "400",
   },
   bottomSection: {
     flex: 2,
     justifyContent: "flex-end",
-    alignItems : "center"
+    alignItems: "center",
   },
   bottomText: {},
   sunnyText: {
-    padding : 5,
+    padding: 5,
     fontSize: 50,
-    fontWeight : "600"
+    fontWeight: "600",
   },
   typeOfWeatherText: {
-    padding : 5,
+    padding: 5,
+    paddingBottom : 20,
     fontSize: 35,
-    fontWeight : "600"
-
+    fontWeight: "600",
   },
 });
+
+export default CurrentWeather;
