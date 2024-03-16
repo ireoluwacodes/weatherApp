@@ -6,8 +6,8 @@ import { Roboto_700Bold, Roboto_400Regular } from "@expo-google-fonts/roboto";
 import { Inter_700Bold } from "@expo-google-fonts/inter";
 import { StyleSheet, Text, View } from "react-native";
 import GlobalStyles from "../config/GlobalStyles";
-import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
+import IconText from "../components/IconText";
 
 const City = () => {
   // const [fontsLoaded] = useFonts({
@@ -24,31 +24,52 @@ const City = () => {
   }
 
   return (
-      <ImageBackground source={city} style={styles.image}>
+    <ImageBackground source={city} style={styles.image}>
       <SafeAreaView style={[GlobalStyles.droidSafeArea, styles.container]}>
         <View style={styles.headerBox}>
           <Text style={[styles.london, styles.headingFont]}>London</Text>
           <Text style={[styles.headingFont, styles.uk]}>UK</Text>
-          <View style={styles.population}>
-            <AntDesign style={styles.user} name="user" size={25} color="red" />
+          <IconText
+            iconColor={"red"}
+            iconContainer={styles.population}
+            iconName={"user"}
+            bodyText={8000}
+            bodyTextStyle={styles.populationText}
+          />
+          {/* <View style={styles.population}>
+            <Feather style={styles.user} name="user" size={25} color="red" />
             <Text style={styles.populationText}>8000</Text>
-          </View>
+          </View> */}
         </View>
         <View style={styles.bottomBox}>
           <View style={styles.weatherTimeWrapper}>
-            <View style={styles.timer}>
+            {/* <View style={styles.timer}>
               <Feather name="sunrise" size={24} color="white" />
               <Text style={styles.timeText}>10:46:58am</Text>
-            </View>
-            <View style={styles.timer}>
+            </View> */}
+            <IconText
+              iconColor={"white"}
+              iconContainer={styles.timer}
+              iconName={"sunrise"}
+              bodyText={"10:46:58am"}
+              bodyTextStyle={styles.timeText}
+            />
+            {/* <View style={styles.timer}>
               <Feather name="sunset" size={24} color="white" />
               <Text style={styles.timeText}>17:28:15pm</Text>
-            </View>
+            </View> */}
+            <IconText
+              iconColor={"white"}
+              iconContainer={styles.timer}
+              iconName={"sunset"}
+              bodyText={"17:28:15pm"}
+              bodyTextStyle={styles.timeText}
+            />
           </View>
         </View>
-      <StatusBar style="auto" hidden={false} />
-    </SafeAreaView>
-      </ImageBackground>
+        <StatusBar style="auto" hidden={false} />
+      </SafeAreaView>
+    </ImageBackground>
   );
 };
 

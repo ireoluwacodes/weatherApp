@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, SafeAreaView, Text, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import GlobalStyles from "../config/GlobalStyles";
+import RowText from "../components/RowText";
 
 const CurrentWeather = () => {
   return (
@@ -9,20 +10,33 @@ const CurrentWeather = () => {
       <View style={styles.topSection}>
         <Feather name="sun" size={150} color="black" />
         <Text style={styles.temperatureText}>6</Text>
-        <Text style={styles.feelsLikeTemperature}>Feels like 9</Text>
+        <RowText
+          containerStyles={styles.rowContainer}
+          message1={'Feels like 9'}
+          message2={'High: 13 Low: 5'}
+          messageTwoStyles={styles.temperatureVariationText}
+        />
+        {/* <Text style={styles.feelsLikeTemperature}>Feels like 9</Text>
         <View style={styles.temperatureVariation}>
-          <Text style={styles.temperatureVariationText}>High: 13</Text>
-          <Text style={styles.temperatureVariationText}>Low: 5</Text>
-        </View>
+        <Text style={styles.temperatureVariationText}>High: 13</Text>
+        <Text style={styles.temperatureVariationText}>Low: 5</Text>
+      </View> */}
       </View>
-      <View style={styles.bottomSection}>
+      <RowText
+        containerStyles={styles.bottomText}
+        message1={'Its Sunny'}
+        message2={'Its Perfect T-Shirt Weather'}
+        messageTwoStyles={styles.typeOfWeatherText}
+        messageOneStyles={styles.sunnyText}
+      />
+      {/* <View style={styles.bottomSection}>
         <View style={styles.bottomText}>
           <Text style={styles.sunnyText}>It's Sunny</Text>
           <Text style={styles.typeOfWeatherText}>
             It's Perfect T-Shirt Weather
           </Text>
         </View>
-      </View>
+      </View> */}
       <StatusBar style="auto" />
     </SafeAreaView>
   );
@@ -60,6 +74,9 @@ const styles = StyleSheet.create({
     flex: 2,
     justifyContent: "flex-end",
     alignItems: "center",
+  },
+  rowContainer: {
+    alignItems: 'center',
   },
   bottomText: {},
   sunnyText: {
