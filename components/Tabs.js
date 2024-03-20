@@ -3,10 +3,14 @@ import City from "../screens/City";
 import { Feather } from "@expo/vector-icons";
 import CurrentWeather from "../screens/CurrentWeather";
 import UpcomingWeather from "../screens/UpcomingWeather";
+import { useEffect } from "react";
 
 const Tab = createBottomTabNavigator();
 
-const Tabs = () => {
+const Tabs = ({weather}) => {
+
+  useEffect(() => console.log("Tabs", weather), []);
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -26,6 +30,7 @@ const Tabs = () => {
     >
       <Tab.Screen
         name="City"
+        initialParams={{weather:weather}}
         component={City}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -39,6 +44,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         name="CurrentWeather"
+        initialParams={{weather}}
         component={CurrentWeather}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -52,6 +58,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         name="UpcomingWeather"
+        initialParams={{weather}}
         component={UpcomingWeather}
         options={{
           tabBarInactiveTintColor: "purple",

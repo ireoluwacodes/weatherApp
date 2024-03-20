@@ -8,11 +8,13 @@ import { StyleSheet, Text, View } from "react-native";
 import GlobalStyles from "../config/GlobalStyles";
 import { Feather } from "@expo/vector-icons";
 import IconText from "../components/IconText";
+import { useEffect } from "react";
 
-const City = () => {
-  // const [fontsLoaded] = useFonts({
-  //   'RobotoBlack' : require("./assets/fonts/Roboto-Black.ttf")
-  // })
+const City = ({ route }) => {
+  const { weather } = route.params;
+
+  useEffect(() => console.log(weather), []);
+
   let [fontsLoaded, fontError] = useFonts({
     Inter_700Bold,
     Roboto_400Regular,
