@@ -9,7 +9,7 @@ const Tab = createBottomTabNavigator();
 
 const Tabs = ({weather}) => {
 
-  useEffect(() => console.log("Tabs", weather), []);
+  // useEffect(() => console.log("Tabs", weather), []);
 
   return (
     <Tab.Navigator

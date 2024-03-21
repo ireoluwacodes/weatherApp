@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { ImageBackground, Platform, SafeAreaView } from "react-native";
 import { useFonts } from "expo-font";
+import moment from "moment";
 import city from "../assets/city-background.jpg";
 import { Roboto_700Bold, Roboto_400Regular } from "@expo-google-fonts/roboto";
 import { Inter_700Bold } from "@expo-google-fonts/inter";
@@ -13,7 +14,7 @@ import { useEffect } from "react";
 const City = ({ route }) => {
   const { weather } = route.params;
 
-  useEffect(() => console.log(weather), []);
+  // useEffect(() => console.log(weather), []);
 
   let [fontsLoaded, fontError] = useFonts({
     Inter_700Bold,
@@ -29,42 +30,34 @@ const City = ({ route }) => {
     <ImageBackground source={city} style={styles.image}>
       <SafeAreaView style={[GlobalStyles.droidSafeArea, styles.container]}>
         <View style={styles.headerBox}>
-          <Text style={[styles.london, styles.headingFont]}>London</Text>
-          <Text style={[styles.headingFont, styles.uk]}>UK</Text>
+          <Text style={[styles.london, styles.headingFont]}>
+            {weather["city"]["name"]}
+          </Text>
+          <Text style={[styles.headingFont, styles.uk]}>
+            {weather["city"]["country"]}
+          </Text>
           <IconText
             iconColor={"red"}
             iconContainer={styles.population}
             iconName={"user"}
-            bodyText={8000}
+            bodyText={weather["city"]["population"]}
             bodyTextStyle={styles.populationText}
           />
-          {/* <View style={styles.population}>
-            <Feather style={styles.user} name="user" size={25} color="red" />
-            <Text style={styles.populationText}>8000</Text>
-          </View> */}
         </View>
         <View style={styles.bottomBox}>
           <View style={styles.weatherTimeWrapper}>
-            {/* <View style={styles.timer}>
-              <Feather name="sunrise" size={24} color="white" />
-              <Text style={styles.timeText}>10:46:58am</Text>
-            </View> */}
             <IconText
               iconColor={"white"}
               iconContainer={styles.timer}
               iconName={"sunrise"}
-              bodyText={"10:46:58am"}
+              bodyText={moment(weather["city"]["sunrise"]).format("HH:mm:ss")}
               bodyTextStyle={styles.timeText}
             />
-            {/* <View style={styles.timer}>
-              <Feather name="sunset" size={24} color="white" />
-              <Text style={styles.timeText}>17:28:15pm</Text>
-            </View> */}
             <IconText
               iconColor={"white"}
               iconContainer={styles.timer}
               iconName={"sunset"}
-              bodyText={"17:28:15pm"}
+              bodyText={moment(weather["city"]["sunset"]).format("HH:mm:ss")}
               bodyTextStyle={styles.timeText}
             />
           </View>

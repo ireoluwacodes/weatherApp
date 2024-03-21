@@ -7,7 +7,7 @@ import { useGetWeather } from "./hooks/useGetWeather";
 
 export default function App() {
   const [loading, errorMsg, weather] = useGetWeather();
-  useEffect(() => console.log("App", weather), []);
+  // useEffect(() => console.log("App", weather), []);
   if (loading) {
     return (
       <View style={styles.container}>
