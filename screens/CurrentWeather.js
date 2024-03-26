@@ -25,13 +25,13 @@ const CurrentWeather = ({ route }) => {
           messageTwoStyles={styles.temperatureVariationText}
         />
       </View>
-      {/* <RowText
+      <RowText
         containerStyles={styles.bottomText}
-        message1={"Its Sunny"}
-        message2={"Its Perfect T-Shirt Weather"}
-        messageTwoStyles={styles.typeOfWeatherText}
+        message1={weatherType[item["weather"][0]["main"]].message}
+        // message2={"Its Perfect T-Shirt Weather"}
+        // messageTwoStyles={styles.typeOfWeatherText}
         messageOneStyles={styles.sunnyText}
-      /> */}
+      />
       <StatusBar style="auto" />
     </SafeAreaView>
   );

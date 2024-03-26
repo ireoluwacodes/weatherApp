@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { ImageBackground, Platform, SafeAreaView } from "react-native";
+import { ImageBackground, SafeAreaView } from "react-native";
 import { useFonts } from "expo-font";
 import moment from "moment";
 import city from "../assets/city-background.jpg";
@@ -7,14 +7,10 @@ import { Roboto_700Bold, Roboto_400Regular } from "@expo-google-fonts/roboto";
 import { Inter_700Bold } from "@expo-google-fonts/inter";
 import { StyleSheet, Text, View } from "react-native";
 import GlobalStyles from "../config/GlobalStyles";
-import { Feather } from "@expo/vector-icons";
 import IconText from "../components/IconText";
-import { useEffect } from "react";
 
 const City = ({ route }) => {
   const { weather } = route.params;
-
-  // useEffect(() => console.log(weather), []);
 
   let [fontsLoaded, fontError] = useFonts({
     Inter_700Bold,
@@ -79,10 +75,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     height: "50%",
-    // borderColor: "white",
-    // borderStyle: "dashed",
-    // borderWidth: 2,
-    // justifyContent: "center",
   },
   london: {
     fontSize: 40,
@@ -108,9 +100,6 @@ const styles = StyleSheet.create({
   user: {},
   bottomBox: {
     flex: 3,
-    // borderColor: "white",
-    // borderStyle: "dashed",
-    // borderWidth: 2,
   },
   weatherTimeWrapper: {
     marginTop: 20,
@@ -118,9 +107,6 @@ const styles = StyleSheet.create({
     gap: 10,
     justifyContent: "space-between",
     padding: 10,
-    // borderColor: "blue",
-    // borderStyle: "dashed",
-    // borderWidth: 2,
     alignItems: "center",
   },
   timer: {

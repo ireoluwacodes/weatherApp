@@ -1,5 +1,5 @@
 import Error from "./components/Error";
-import React, { useEffect } from "react";
+import React from "react";
 import Tabs from "./components/Tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { ActivityIndicator, StyleSheet, View } from "react-native";
@@ -7,7 +7,6 @@ import { useGetWeather } from "./hooks/useGetWeather";
 
 export default function App() {
   const [loading, errorMsg, weather] = useGetWeather();
-  // useEffect(() => console.log("App", weather), []);
   if (loading) {
     return (
       <View style={styles.container}>

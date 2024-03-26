@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import * as Location from "expo-location";
 const apiKey = process.env.API_KEY;
 
@@ -45,7 +45,7 @@ export const useGetWeather = () => {
 
       let location = await Location.getCurrentPositionAsync({});
       let myLon = location.coords.longitude.toFixed(4);
-      let myLat = location.coords.latitude.toFixed(4);
+      let myLat = location.coords.latitude.toFixed(4);  
       myLon == lon ? "" : setLon(myLon);
       myLat == lat ? "" : setLat(myLat);
       if (lon && lat) {
